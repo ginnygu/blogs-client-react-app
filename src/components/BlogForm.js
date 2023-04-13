@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function BlogForm(props) {
 	const [titleInput, setTitleInput] = useState("");
 	const [textInput, setTextInput] = useState("");
 	const [authorInput, setAuthorInput] = useState("");
+
+	const navigate = useNavigate();
 
 	console.log(props);
 	const handleOnSubmit = (e) => {
@@ -21,6 +24,7 @@ function BlogForm(props) {
 		setTitleInput("");
 		setTextInput("");
 		setAuthorInput("");
+		navigate("/");
 		//props.setBlogsProps([...props.blogsProps, newBlog])
 		//function getInfo(callback){}
 		//getInfo(handleOnSubmit)

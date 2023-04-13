@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import Blogs from "./components/Blogs";
 import BlogForm from "./components/BlogForm";
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
 	const initialState = [
@@ -24,8 +25,13 @@ function App() {
 		<div>
 			<NavBar />
 			{/* <BlogForm setBlogsProps={setBlogs} blogsProps={blogs} /> */}
-			<BlogForm setBlogsProps={setBlogs} />
-			<Blogs blogsProps={blogs} />
+			<Routes>
+				<Route path="/" element={<Blogs blogsProps={blogs} />} />
+				<Route
+					path="/blog-form"
+					element={<BlogForm setBlogsProps={setBlogs} />}
+				/>
+			</Routes>
 		</div>
 	);
 }
