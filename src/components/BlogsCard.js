@@ -1,7 +1,10 @@
-function BlogsCard() {
+function BlogsCard(props) {
+	console.log("blogs card", props);
 	return (
 		<div>
-			<p>Cards here</p>
+			<h3>{props.blog.title}</h3>
+			<p>{props.blog.text}</p>
+			<p>author: {props.blog.author}</p>
 		</div>
 	);
 }
