@@ -65,7 +65,6 @@ function App() {
 	return (
 		<div className="App">
 			<NavBar />
-			{/**key value pair in props*/}
 			<input
 				type="text"
 				value={name}
@@ -77,6 +76,7 @@ function App() {
 				<option value="hello">hello</option>
 			</select>
 			<button onClick={handleOnClick}>submit</button>
+			{/**key value pair in props*/}
 			<Blogs name={name} age={age} />
 		</div>
 	);
