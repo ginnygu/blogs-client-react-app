@@ -49,7 +49,15 @@ function App() {
 						/>
 					}
 				/>
-				<Route path="/edit-blog" element={<EditBlog />} />
+				<Route
+					path="/edit-blog/:id"
+					element={
+						<EditBlog
+							blogsProps={blogs}
+							setShouldRefreshProps={setShouldRefresh}
+						/>
+					}
+				/>
 			</Routes>
 		</div>
 	);
