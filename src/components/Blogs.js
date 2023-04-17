@@ -7,7 +7,13 @@ function Blogs(props) {
 			<h1>Blogs</h1>
 			{/* <h2>{props.name}</h2> */}
 			{props.blogsProps.map((blog) => {
-				return <BlogsCard key={blog.id} blog={blog} />;
+				return (
+					<BlogsCard
+						key={blog.id}
+						blog={blog}
+						setShouldRefresh={props.setShouldRefreshProps}
+					/>
+				);
 			})}
 		</div>
 	);
