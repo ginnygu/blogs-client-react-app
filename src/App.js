@@ -5,6 +5,8 @@ import NavBar from "./components/NavBar";
 import Blogs from "./components/Blogs";
 import BlogForm from "./components/BlogForm";
 import EditBlog from "./components/EditBlog";
+import Registration from "./Pages/Registration";
+import Login from "./Pages/Login";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -58,6 +60,8 @@ function App() {
 						/>
 					}
 				/>
+				<Route path="/register" element={<Registration />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 		</div>
 	);
