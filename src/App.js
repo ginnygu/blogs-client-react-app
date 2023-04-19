@@ -7,6 +7,7 @@ import BlogForm from "./components/BlogForm";
 import EditBlog from "./components/EditBlog";
 import Registration from "./Pages/Registration";
 import Login from "./Pages/Login";
+import PrivatePage from "./Pages/PrivatePage";
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
@@ -33,33 +34,35 @@ function App() {
 			<NavBar />
 			{/* <BlogForm setBlogsProps={setBlogs} blogsProps={blogs} /> */}
 			<Routes>
-				<Route
-					path="/"
-					element={
-						<Blogs
-							blogsProps={blogs}
-							setShouldRefreshProps={setShouldRefresh}
-						/>
-					}
-				/>
-				<Route
-					path="/blog-form"
-					element={
-						<BlogForm
-							setBlogsProps={setBlogs}
-							setShouldRefreshProps={setShouldRefresh}
-						/>
-					}
-				/>
-				<Route
-					path="/edit-blog/:id"
-					element={
-						<EditBlog
-							blogsProps={blogs}
-							setShouldRefreshProps={setShouldRefresh}
-						/>
-					}
-				/>
+				<Route path="/home" element={<PrivatePage />}>
+					<Route
+						index
+						element={
+							<Blogs
+								blogsProps={blogs}
+								setShouldRefreshProps={setShouldRefresh}
+							/>
+						}
+					/>
+					<Route
+						path="blog-form"
+						element={
+							<BlogForm
+								setBlogsProps={setBlogs}
+								setShouldRefreshProps={setShouldRefresh}
+							/>
+						}
+					/>
+					<Route
+						path="edit-blog/:id"
+						element={
+							<EditBlog
+								blogsProps={blogs}
+								setShouldRefreshProps={setShouldRefresh}
+							/>
+						}
+					/>
+				</Route>
 				<Route path="/register" element={<Registration />} />
 				<Route path="/login" element={<Login />} />
 			</Routes>

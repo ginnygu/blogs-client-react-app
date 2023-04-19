@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { loginUser } from "../Auth/authUtils";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../Auth/AuthContext";
 
 export default function Login() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	console.log(useAuth());
+	const { login } = useAuth();
 
 	const navigate = useNavigate();
 
@@ -15,14 +14,16 @@ export default function Login() {
 			email: email,
 			password: password,
 		};
-		const loginResult = await loginUser(userData);
-		if (loginResult.success) {
-			console.log(loginResult);
-			navigate("/");
+		const loginResult = await login(userData);
+		if (loginResult) {
+			navigate("/home");
+		} else {
+			navigate("/register");
 		}
 	};
 	return (
 		<div>
+			<h1>Login Page</h1>
 			<label htmlFor="email">Email:</label>
 			<input
 				type="text"

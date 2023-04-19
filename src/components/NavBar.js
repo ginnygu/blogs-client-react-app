@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 function NavBar() {
 	return (
 		<nav>
-			<Link to="/">Home</Link>
+			<Link to="/home">Home</Link>
 			{"    "}
-			<Link to="/blog-form">Create New Blog</Link>
+			<Link to="/home/blog-form">Create New Blog</Link>
 			{"    "}
 			<Link to="/register">Register</Link>
 			{"    "}
