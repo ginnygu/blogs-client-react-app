@@ -14,9 +14,7 @@ const AuthProvider = ({ children }) => {
 	const [shouldRefresh, setshouldRefresh] = useState(false);
 	useEffect(() => {
 		const userToken = getUserToken();
-		if (userToken) {
-			setUser(userToken);
-		}
+		setUser(userToken);
 	}, [shouldRefresh]);
 
 	useEffect(() => {
@@ -25,12 +23,14 @@ const AuthProvider = ({ children }) => {
 			if (verifiedUser.success) {
 				setIsVerified(true);
 			}
-			if (verifiedUser.message === "Request failed with status code 401") {
-				setIsVerified(false);
+			if (
+				verifiedUser.response &&
+				verifiedUser.response.data.success === false
+			) {
 				await logout();
 			}
 		};
-		responseFetch();
+		if (user) responseFetch();
 	}, [user]);
 
 	const login = async (data) => {

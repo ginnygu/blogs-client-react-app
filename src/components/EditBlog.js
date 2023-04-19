@@ -15,7 +15,6 @@ export default function EditBlog(props) {
 		const foundBlog = props.blogsProps.find((blog) => {
 			return blog.id === id;
 		});
-		console.log(foundBlog);
 		setTitleInput(foundBlog.title);
 		setTextInput(foundBlog.text);
 		setAuthorInput(foundBlog.author);

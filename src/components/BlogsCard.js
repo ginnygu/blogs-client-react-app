@@ -11,7 +11,6 @@ function BlogsCard(props) {
 		const response = await axios.delete(`${url}/blogs/delete-by-id/${id}`);
 		props.setShouldRefresh(false);
 	};
-	console.log("blogs card", props);
 	return (
 		<div
 			style={{
