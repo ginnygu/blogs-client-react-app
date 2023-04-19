@@ -6,5 +6,9 @@ const setUserToken = (token) => {
 const getUserToken = () => {
 	return JSON.parse(localStorage.getItem(tokenHeaderKey));
 };
+const removeUserToken = () => {
+	localStorage.removeItem(tokenHeaderKey);
+	return true;
+};
 
-export { setUserToken, getUserToken };
+export { setUserToken, getUserToken, removeUserToken };

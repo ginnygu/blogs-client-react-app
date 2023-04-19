@@ -34,16 +34,16 @@ function App() {
 			<NavBar />
 			{/* <BlogForm setBlogsProps={setBlogs} blogsProps={blogs} /> */}
 			<Routes>
+				<Route
+					path="/"
+					element={
+						<Blogs
+							blogsProps={blogs}
+							setShouldRefreshProps={setShouldRefresh}
+						/>
+					}
+				/>
 				<Route path="/home" element={<PrivatePage />}>
-					<Route
-						index
-						element={
-							<Blogs
-								blogsProps={blogs}
-								setShouldRefreshProps={setShouldRefresh}
-							/>
-						}
-					/>
 					<Route
 						path="blog-form"
 						element={

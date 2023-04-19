@@ -16,7 +16,7 @@ export default function Login() {
 		};
 		const loginResult = await login(userData);
 		if (loginResult) {
-			navigate("/home");
+			navigate("/");
 		} else {
 			navigate("/register");
 		}
